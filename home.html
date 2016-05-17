@@ -25,52 +25,92 @@
 				if(toggleFlag){
 					$('.left-sidebar').addClass('dock'); 
 					$('.main-container').css('margin-left', 290);
-					$('.icon-lock').css('font-size', '0px');
-					$('.icon-lock2').css('font-size', '20px');
+					$('.icon-lock').css('visibility', 'hidden');
+					$('.icon-lock2').css('visibility', 'visible');
 					toggleFlag = false;
 				}else{
 					$('.left-sidebar').removeClass('dock'); 
 					$('.main-container').css('margin-left', 90);
-					$('.icon-lock').css('font-size', '20px');
-					$('.icon-lock2').css('font-size', '0px');
+					$('.icon-lock2').css('visibility', 'hidden');
+					$('.icon-lock').css('visibility', 'visible');
 					toggleFlag = true;
 				}
 			});
-		});	
-		$(document).ready(function(){
 			$('.popup_open').click(function(){
-				if(toggleFlag1){
-					$('.contain').css('animation', 'ripple .4s ease-out'); 
-					$('.contain').css('transform', 'scale(1)'); 
-					}
+				$('.contain').css('animation', 'ripple .4s ease-out'); 
+				$('.contain').css('transform', 'scale(1)'); 
 			});
 			$('.btn_close').click(function(){
-				if(toggleFlag){
-					$('.contain').css('animation', 'rippleback .4s ease-in'); 
-					$('.contain').css('transform', 'scale(0)'); 
-					}
+				$('.contain').css('animation', 'rippleback .4s ease-in'); 
+				$('.contain').css('transform', 'scale(0)'); 
 			});
-		});	
-		$(document).ready(function(){
 			$('.close-button').click(function(){
-				if(toggleFlag){
-					$('.right-sidebar ul li').css('animation', 'rippleback .4s ease-in'); 
-					$('.right-sidebar ul li').css('transform', 'scale(0)'); 
-					}
+				var id = $(this).attr('id');
+				var val2 ="#" + id.replace("cls", "");
+				var val3 ="#" + id.replace("cls", "ch");
+				var val4 ="#" + id.replace("cls", "rif");
+				var val5 ="#" + id.replace("cls", "li");
+ 				$(val5).css('transitionDelay', '0s');
+ 				$(val5).css('background', '#eee');
+ 				$(val2).css('animation', 'rippleback .4s ease-in');
+				$(val2).css('transform', 'scale(0)');
+				$(val2).css('display','none');
+				$(val3).attr('checked', false);
+				$(val4).css('animation', 'ripeffback .4s ease-in');
 			});
 		});	
 
 		</script>
 		<script type="text/javascript">
-			function display(){
-				document.getElementById('popup1').style.display = 'block';
-			}
-			function hide(){
-				document.getElementById('popup1').style.display = 'none';
-				toggleFlag1 =true;
-			}
+			function disp(val){
+				var val1 = val + "ch";
+				if(document.getElementById(val1).checked === true)
+				{
+					document.getElementById(val).style.animation="ripple .4s ease-out";
+					document.getElementById(val).style.transform="scale(1)";
+					document.getElementById(val).style.display="block";
+					document.getElementById(val + "rif").style.animation="ripeff .3s ease-out";
+					document.getElementById(val + "li").style.transitionDelay=".3s";
+					document.getElementById(val + "li").style.background="#ccc";
+				}
+				else if(document.getElementById(val1).checked === false)
+				{
+					document.getElementById(val + "li").style.transitionDelay="0s";
+					document.getElementById(val + "li").style.background="#eee";
+					document.getElementById(val).style.animation="rippleback .4s ease-in";
+					document.getElementById(val).style.transform="scale(0)";
+					document.getElementById(val).style.display="none";
+					document.getElementById(val + "rif").style.animation="ripeffback .3s ease-in";
+				}
+			};
+		</script>
+		<script type="text/javascript">
+			function cls(val){
+				document.getElementById(val).style.animation="rippleback .4s ease-in";
+				document.getElementById(val).style.transform="scale(0)";
+			};
 		</script>
         
+
+        <script>
+			function openNav() {
+				document.getElementById("myNav").style.height = "100%";
+			}
+
+				function closeNav() {
+					document.getElementById("myNav").style.height = "0%";
+				}
+		</script>
+        <script>
+			$(document).ready(function(){
+				$("input").keyup(function(){
+				    $('#hiding').show();
+					$('#search-text1').val($(this).val());
+					$('.search-text2').text($(this).val());
+					$('#search-text3').val($(this).val());
+				});
+			});
+		</script>
         
         
 
@@ -117,7 +157,7 @@
 	</div>
 	<div class="left-nav">
 		<ul>
-			<li>
+			<li class="ma-to">
 				<a>
 					<div class="l-title">Home</div>
 					<div class="l-update">Home</div>
@@ -139,109 +179,19 @@
 				<div class="fa fa-briefcase"></div>
 			</li>
 			<li>
-				<a>
-					<div class="l-title">Home</div>
+				<a style="margin-top:100px;">
+					<div class="l-title">Briefcase</div>
 					<div class="l-update">Home</div>
 				</a>
-				<div class="fa fa-home"></div>
+				<div class="fa fa-heart heart1"></div>
+				<div class="fa fa-circle circle1"></div>
 			</li>
 			<li>
 				<a>
-					<div class="l-title">Home</div>
+					<div class="l-title">Briefcase</div>
 					<div class="l-update">Home</div>
 				</a>
-				<div class="fa fa-home"></div>
-			</li>
-			<li>
-				<a>
-					<div class="l-title">Home</div>
-					<div class="l-update">Home</div>
-				</a>
-				<div class="fa fa-home"></div>
-			</li>
-			<li>
-				<a>
-					<div class="l-title">Home</div>
-					<div class="l-update">Home</div>
-				</a>
-				<div class="fa fa-home"></div>
-			</li>
-			<li>
-				<a>
-					<div class="l-title">Home</div>
-					<div class="l-update">Home</div>
-				</a>
-				<div class="fa fa-home"></div>
-			</li>
-			<li>
-				<a>
-					<div class="l-title">Home</div>
-					<div class="l-update">Home</div>
-				</a>
-				<div class="fa fa-home"></div>
-			</li>
-			<li>
-				<a>
-					<div class="l-title">Home</div>
-					<div class="l-update">Home</div>
-				</a>
-				<div class="fa fa-home"></div>
-			</li>
-			<li>
-				<a>
-					<div class="l-title">Home</div>
-					<div class="l-update">Home</div>
-				</a>
-				<div class="fa fa-home"></div>
-			</li>
-			<li>
-				<a>
-					<div class="l-title">Home</div>
-					<div class="l-update">Home</div>
-				</a>
-				<div class="fa fa-home"></div>
-			</li>
-			<li>
-				<a>
-					<div class="l-title">Home</div>
-					<div class="l-update">Home</div>
-				</a>
-				<div class="fa fa-home"></div>
-			</li>
-			<li>
-				<a>
-					<div class="l-title">Home</div>
-					<div class="l-update">Home</div>
-				</a>
-				<div class="fa fa-home"></div>
-			</li>
-			<li>
-				<a>
-					<div class="l-title">Home</div>
-					<div class="l-update">Home</div>
-				</a>
-				<div class="fa fa-home"></div>
-			</li>
-			<li>
-				<a>
-					<div class="l-title">Home</div>
-					<div class="l-update">Home</div>
-				</a>
-				<div class="fa fa-home"></div>
-			</li>
-			<li>
-				<a>
-					<div class="l-title">Home</div>
-					<div class="l-update">Home</div>
-				</a>
-				<div class="fa fa-home"></div>
-			</li>
-			<li>
-				<a>
-					<div class="l-title">Home</div>
-					<div class="l-update">Home</div>
-				</a>
-				<div class="fa fa-home"></div>
+				<div class="fa fa-facebook"></div>
 			</li>
 		</ul>
 	</div>
@@ -331,7 +281,123 @@
 
 
 
-<div class="search-bar"><i class="fa fa-search" aria-hidden="true"></i> <strong>Search</strong> for Products, Services and News</div>
+<div class="search-bar" onclick="openNav()"><i class="fa fa-search" aria-hidden="true"></i> <strong>Search</strong> for Products, Services and News</div>
+<!------------- Overlay ------------------------->
+<div class="row">
+	<div class="col-lg-12">
+		 <div id="myNav" class="overlay">
+			<div class="overlay-content">
+				<div class="row"><!---Row 1 for Samvada Title Start--->
+					<div class="col-lg-10">
+						<div class="top-logo-overlay">Samvada</div>
+					</div>
+					<div class="col-lg-2">
+						<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+					</div>
+				</div><!---Row 1 for Samvada Title Ends Here--->
+				
+					<div class="row"><!---Row 2 for Big Search Bar Start--->
+					<div class="col-lg-10">
+						<form role="form">
+							<div class="form-group">
+								 <input class="form-control" placeholder="Search...">
+								 <p class="help-block"><i class="fa fa-search"> Search within the Page. Press Enter to Search</i></p>
+							</div>
+						</form>
+					</div>
+					
+					
+				</div><!---Row 2 for Big Search Bar End--->
+				<div class="row"><!---Row 3 for Big Suggession Start--->
+					<div class="col-lg-2">
+						<h5>Suggession:</h5>
+					</div>
+					<div class="col-lg-7">
+						<input id="search-text1" class="textview-style">
+					</div>
+				</div><!---Row 3 for Big Suggession Ends--->
+				
+				<div class="row"><!---Row 4 for "Page search result" text Start--->
+					<div class="col-lg-12" style ="margin-top:40px;">
+						<p class="help-block" style ="font-weight:bold; color:#424242"> Pages Search Results</p>
+					</div>
+				</div><!---Row 4 for "Page search result" text End--->
+			<div class="row"  id="hiding" style="display:none;">
+				<div class="row"><!---Row 5 for "first row of music and google icons " start--->
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<div class="col-lg-1">
+							<img src="images/music.png" class="img-responsive">
+						</div>
+						<div class="col-lg-3">
+							<br/><br/>
+							<b><span class="search-text2"style="font-size:14px"></span> <span style="font-size:14px">Pages Search Results on Music</span></b>
+						</div>
+						
+						<div class="col-lg-1">
+							<img src="images/google+.png" class="img-responsive">
+						</div>
+						<div class="col-lg-3">
+						    <br/><br/>
+							<b><span class="search-text2"style="font-size:14px"></span> <span style="font-size:14px">Pages Search Results on Google+</span></b>
+							
+						</div>
+					</div>
+				</div><!---Row 5 for "first row of music and google icons " End--->
+				
+				
+				<div class="row"><!---Row 6 for "second row of music and google icons " start--->
+					<div class="col-lg-12">
+						<div class="col-lg-1">
+							<img src="images/music.png" class="img-responsive">
+						</div>
+						<div class="col-lg-3">
+							<br/><br/>
+							<b><span class="search-text2"style="font-size:14px"></span> <span style="font-size:14px">Pages Search Results on Music</span></b>
+						</div>
+						
+						<div class="col-lg-1">
+							<img src="images/google+.png" class="img-responsive">
+						</div>
+						<div class="col-lg-3">
+							<br/><br/>
+							<b><span class="search-text2"style="font-size:14px"></span> <span style="font-size:14px">Pages Search Results on Google+</span></b>
+						</div>
+					</div>
+				</div><!---Row 6 for "second row of music and google icons " end--->
+				
+				
+				
+				<div class="row"><!---Row 7 for "third row of music and google icons " start--->
+					<div class="col-lg-12">
+						<div class="col-lg-1">
+							<img src="images/music.png" class="img-responsive">
+						</div>
+						<div class="col-lg-3">
+							<br/><br/>
+							<b><span class="search-text2"style="font-size:14px"></span> <span style="font-size:14px">Pages Search Results on Music</span></b>
+						</div>
+						
+						<div class="col-lg-1">
+							<img src="images/google+.png" class="img-responsive">
+						</div>
+						<div class="col-lg-3">
+							<br/><br/>
+							<b><span class="search-text2"style="font-size:14px"></span> <span style="font-size:14px">Pages Search Results on Google+</span></b>
+						</div>
+					</div>
+				</div><!---Row 7 for "third row of music and google icons " ends--->
+			</div>	
+				
+				
+			</div>
+		 </div>
+	</div>
+</div>
+
+<!-- Use any element to open/show the overlay navigation menu -->
+
+
+<!---------------- Overlay ends ------------------->
 </div></div>
 
 
@@ -576,18 +642,18 @@
 
 <div class="right-sidebar">
 	<ul>
-		<li value="1">
-			<div class="close-button" value="1">X</div>
+		<li id="city" class="data">
+			<div class="close-button" id="citycls">X</div>
 			<a href="#"><img src="assets/city.png" />
 			</a>
 		</li>
-		<li>
-			<div class="close-button">X</div>
+		<li id="sports" class="data">
+			<div class="close-button" id="sportscls">X</div>
 			<a href="#"><img src="assets/sports.png" />
 			</a>
 		</li>
-		<li>
-			<div class="close-button">X</div>
+		<li id="ie" class="data">
+			<div class="close-button" id="iecls">X</div>
 			<a href="#"><img src="assets/indian-express.png" />
 			</a>
 		</li>
@@ -641,75 +707,23 @@
 		</div>
 		<div class="popup1-lower">
 			<ul>
-				<li>
+				<li id="ieli">
 					<img src="assets/indian-express.png" />
 					<span>The New York Times</span>
-					<input type="checkbox" id="applech" name="apple" value="apple" onClick="apple('apple')"></input>
+					<input type="checkbox" id="iech" value="ie" class="ch" onClick="disp('ie')"></input>
+					<div class="ripef" id="ierif"></div>
 				</li>
-				<li>
-					<img src="assets/indian-express.png" />
-					<span>The New York Times</span>
-					<input type="checkbox" id="applech" name="apple" value="apple" onClick="apple('apple')"></input>
+				<li id="cityli">
+					<img src="assets/city.png" />
+					<span>City</span>
+					<input type="checkbox" id="citych" name="city" value="city" class="ch" onClick="disp('city')"></input>
+					<div class="ripef" id="cityrif"></div>
 				</li>
-				<li>
-					<img src="assets/indian-express.png" />
-					<span>The New York Times</span>
-					<input type="checkbox" id="applech" name="apple" value="apple" onClick="apple('apple')"></input>
-				</li>
-				<li>
-					<img src="assets/indian-express.png" />
-					<span>The New York Times</span>
-					<input type="checkbox" id="applech" name="apple" value="apple" onClick="apple('apple')"></input>
-				</li>
-				<li>
-					<img src="assets/indian-express.png" />
-					<span>The New York Times</span>
-					<input type="checkbox" id="applech" name="apple" value="apple" onClick="apple('apple')"></input>
-				</li>
-				<li>
-					<img src="assets/indian-express.png" />
-					<span>The New York Times</span>
-					<input type="checkbox" id="applech" name="apple" value="apple" onClick="apple('apple')"></input>
-				</li>
-				<li>
-					<img src="assets/indian-express.png" />
-					<span>The New York Times</span>
-					<input type="checkbox" id="applech" name="apple" value="apple" onClick="apple('apple')"></input>
-				</li>
-				<li>
-					<img src="assets/indian-express.png" />
-					<span>The New York Times</span>
-					<input type="checkbox" id="applech" name="apple" value="apple" onClick="apple('apple')"></input>
-				</li>
-				<li>
-					<img src="assets/indian-express.png" />
-					<span>The New York Times</span>
-					<input type="checkbox" id="applech" name="apple" value="apple" onClick="apple('apple')"></input>
-				</li>
-				<li>
-					<img src="assets/indian-express.png" />
-					<span>The New York Times</span>
-					<input type="checkbox" id="applech" name="apple" value="apple" onClick="apple('apple')"></input>
-				</li>
-				<li>
-					<img src="assets/indian-express.png" />
-					<span>The New York Times</span>
-					<input type="checkbox" id="applech" name="apple" value="apple" onClick="apple('apple')"></input>
-				</li>
-				<li>
-					<img src="assets/indian-express.png" />
-					<span>The New York Times</span>
-					<input type="checkbox" id="applech" name="apple" value="apple" onClick="apple('apple')"></input>
-				</li>
-				<li>
-					<img src="assets/indian-express.png" />
-					<span>The New York Times</span>
-					<input type="checkbox" id="applech" name="apple" value="apple" onClick="apple('apple')"></input>
-				</li>
-				<li>
-					<img src="assets/indian-express.png" />
-					<span>The New York Times</span>
-					<input type="checkbox" id="applech" name="apple" value="apple" onClick="apple('apple')"></input>
+				<li id="sportsli">
+					<img src="assets/sports.png" />
+					<span>Sports</span>
+					<input type="checkbox" id="sportsch" value="sports" class="ch" onClick="disp('sports')"></input>
+					<div class="ripef" id="sportsrif"></div>
 				</li>
 			</ul>
 		</div>
